@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: "paul"
+  siriable_login: MyString
+  siriable_password: MyString
+
+two:
+  name: "brian"
+  siriable_login: MyString
+  siriable_password: MyString
