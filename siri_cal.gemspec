@@ -10,11 +10,11 @@ Gem::Specification.new do |s|
   s.authors     = ["Stephane Bounmy"]
   s.email       = ["stephanebounmy@gmail.com"]
   s.platform    = Gem::Platform::RUBY
-  s.homepage    = "TODO"
+  s.homepage    = "http://github.com/sbounmy/siri_cal"
   s.summary     = "A simple gem provide siri helper by using gcal events"
   s.description = "A simple gem provide siri helper by using gcal events"
 
-  s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.rdoc"]
+  s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.md"]
   s.test_files = Dir["test/**/*"]
 
   s.add_dependency "google_calendar", "0.2.0"
