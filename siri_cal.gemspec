@@ -18,7 +18,7 @@ Gem::Specification.new do |s|
   s.test_files = Dir["test/**/*"]
 
   s.add_dependency "google_calendar", "0.2.0"
-
+  s.add_dependency "delayed_job", "~> 2.1.4"
   s.add_development_dependency "rails", "~> 3.1.0"
   s.add_development_dependency "sqlite3"
 end

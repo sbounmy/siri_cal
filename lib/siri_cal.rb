@@ -6,7 +6,8 @@ require 'rails/generators'
 require 'generators/install'
 require 'siri_cal/say_proxy'
 require 'siri_cal/methods'
-
+require 'delayed_job'
+require 'siri_cal/siri_job'
 module SiriCal
   extend ActiveSupport::Concern
   class RedundantError < StandardError; end;
