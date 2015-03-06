@@ -54,6 +54,21 @@ class SiriCalTest < ActiveSupport::TestCase
         assert_nil @user.calendar.events
       end
     end
+
+    context "when params background is true" do
+      should "execute siri's process using delayed_jobs" do
+        VCR.use_cassette("valid_credentials_with_events") do
+          assert_difference('Delayed::Job.count', 1, "a job should be created") { @user.execute_siri!(true) }
+        end
+      end
+
+      should "execute siri process successfully" do
+        VCR.use_cassette("valid_credentials_with_events") do
+          assert_difference('Delayed::Job.count', 1, "a job should be created") { @user.execute_siri!(true) }
+          assert_difference('@user.movies.count', 1, 'a movie should be created') { Delayed::Worker.new.work_off }
+        end
+      end
+    end
   end
 
   context "#invoke_say" do

@@ -38,7 +38,11 @@ module SiriCal
     # Public: GET calendar's event and run then according to block defined in lib/siri_says.rb
     #
     # Returns nothing.
-    def execute_siri!
+    def execute_siri!(background=false)
+      background ? Delayed::Job.enqueue(SiriJob.new(self.id, self.class)) : load_siri
+    end
+
+    def load_siri
       SayProxy.load_files
       calendar.events.to_a.each do |event|
         res = SayProxy.invoke_say(event, self)
